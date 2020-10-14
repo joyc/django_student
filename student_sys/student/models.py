@@ -28,6 +28,11 @@ class Student(models.Model):
     class Meta:
         verbose_name = verbose_name_plural = "学员信息"
 
+    @property
+    def sex_show(self):
+        # return dict(self.SEX_ITEMS)[self.sex]
+        return self.get_sex_display()
+
     @classmethod
     def get_all(cls):
         return cls.objects.all()
